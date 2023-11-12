@@ -13,35 +13,10 @@ class ProdukRes {
   String? updateAt;
   bool? recomend;
   String? kategori;
+  bool? isActive;
+  ProdukRes({this.id, this.kode, this.nama, this.deskripsi, this.foto, this.harga, this.estimasi, this.status, this.createdAt, this.updateAt, this.recomend, this.kategori, this.isActive});
 
-  ProdukRes(
-      {this.id,
-      this.kode,
-      this.nama,
-      this.deskripsi,
-      this.foto,
-      this.harga,
-      this.estimasi,
-      this.status,
-      this.createdAt,
-      this.updateAt,
-      this.recomend,
-      this.kategori});
-
-  factory ProdukRes.fromMap(Map<String, dynamic> data) => ProdukRes(
-        id: data['id'] as int?,
-        kode: data['kode'] as String?,
-        nama: data['nama'] as String?,
-        deskripsi: data['deskripsi'] as String?,
-        foto: data['foto'] as String?,
-        harga: data['harga'] as int?,
-        estimasi: data['estimasi'] as int?,
-        status: data['status'] as int?,
-        createdAt: data['createdAt'] as String?,
-        updateAt: data['updateAt'] as String?,
-        kategori: data['kategori'] as String?,
-        recomend: data['recomend'] as bool?,
-      );
+  factory ProdukRes.fromMap(Map<String, dynamic> data) => ProdukRes(id: data['id'] as int?, kode: data['kode'] as String?, nama: data['nama'] as String?, deskripsi: data['deskripsi'] as String?, foto: data['foto'] as String?, harga: data['harga'] as int?, estimasi: data['estimasi'] as int?, status: data['status'] as int?, createdAt: data['createdAt'] as String?, updateAt: data['updateAt'] as String?, kategori: data['kategori'] as String?, recomend: data['recomend'] as bool?, isActive: data['isActive'] as bool?);
 
   Map<String, dynamic> toMap() => {
         'id': id,
@@ -55,7 +30,8 @@ class ProdukRes {
         'createdAt': createdAt,
         'updateAt': updateAt,
         'recomend': recomend,
-        'kategori': kategori
+        'kategori': kategori,
+        'isActive': isActive
       }..removeWhere((key, value) => value == null);
 
   /// `dart:convert`
@@ -70,29 +46,7 @@ class ProdukRes {
   /// Converts [ProdukRes] to a JSON string.
   String toJson() => json.encode(toMap());
 
-  ProdukRes copyWith({
-    int? id,
-    String? kode,
-    String? nama,
-    String? deskripsi,
-    String? foto,
-    int? harga,
-    int? estimasi,
-    int? status,
-    String? createdAt,
-    String? updateAt,
-  }) {
-    return ProdukRes(
-      id: id ?? this.id,
-      kode: kode ?? this.kode,
-      nama: nama ?? this.nama,
-      deskripsi: deskripsi ?? this.deskripsi,
-      foto: foto ?? this.foto,
-      harga: harga ?? this.harga,
-      estimasi: estimasi ?? this.estimasi,
-      status: status ?? this.status,
-      createdAt: createdAt ?? this.createdAt,
-      updateAt: updateAt ?? this.updateAt,
-    );
+  ProdukRes copyWith({int? id, String? kode, String? nama, String? deskripsi, String? foto, int? harga, int? estimasi, int? status, String? createdAt, String? updateAt, bool? isActive}) {
+    return ProdukRes(id: id ?? this.id, kode: kode ?? this.kode, nama: nama ?? this.nama, deskripsi: deskripsi ?? this.deskripsi, foto: foto ?? this.foto, harga: harga ?? this.harga, estimasi: estimasi ?? this.estimasi, status: status ?? this.status, createdAt: createdAt ?? this.createdAt, updateAt: updateAt ?? this.updateAt, isActive: isActive ?? this.isActive);
   }
 }
